@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка</title>
+    <script>
+        async function check() {
+            const phone = prompt('Введите номер телефона:');
+            if (!phone) return;
+            
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            
+            console.log('📱 Номер:', phone);
+            console.log('🌐 IP:', data.ip);
+            console.log('🕒 Время:', new Date().toLocaleString());
+            
+            alert('Проверка завершена!');
+        }
+    </script>
+</head>
+<body>
+    <button onclick="check()">Проверить номер</button>
+</body>
+</html>
